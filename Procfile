@@ -1,1 +1,1 @@
-web: gunicorn restaurants-reviews.wsgi --log-file -
+web: gunicorn Restaurants_Review_Website.wsgi

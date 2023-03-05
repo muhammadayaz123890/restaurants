@@ -1,0 +1,22 @@
+{% load static %}
+<style>
+    .navbar-container ul li a{
+        font-style: normal;
+    }
+    .navbar-container ul li a:hover{
+        border-radius: 10px;
+    }
+</style>
+<link rel="stylesheet" href="../static/style.css">
+<div class="navbar-container">
+    <h1>RESTAURANT'S REVIEW</h1>
+    <ul>
+        <li><a href="{% url 'homepage' %}">HOME</a></li>
+        <li><a href="{% url 'categories_page' %}">CATEGORIES</a></li>
+        <li><a href="{% url 'all_chefs_page' %}">CHEFS</a></li>
+        <li><a href="{% url 'all_restaurants_page' %}">ALL RESTAURANTS</a></li>
+        <li><a href="{% url 'about_page' %}">ABOUT US</a></li>
+        <li><a href="{% url 'contact_page' %}">CONTACT</a></li>
+    </ul>
+</div>
+

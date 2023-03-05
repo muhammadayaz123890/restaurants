@@ -1,0 +1,38 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    .named{
+        text-transform: uppercase;
+        color: crimson;
+        font-weight: 700;
+    }
+</style>
+
+
+<div class="container-4">
+    <div class="head-area">
+        <h1><span class="named">{{name_of_cat}}</span> RESTAURANTS</h1>
+        <p>HERE ARE SOME OF THE BEST <span class="named">{{name_of_cat}}</span> RESTAURANTS, THAT WE WOULD SUGGEST FOR YOU TO GO TO IN THIS AREA.</p>
+    </div>
+    <div class="rest-area">
+        {% for rest in cat_rests %}
+        <a href="/restaurant/?rest_id={{rest.id}}" class="rest-a">
+            <div class="img-div">
+                <img src="{{rest.rest_main_img.url}}" alt="">
+            </div>
+            <div class="text-areas">
+                <h2>{{rest.rest_name}}</h2>
+                <p>{{rest.rest_short_intro}}</p>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+
+

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+<style>
+    .container-3 .category-div .category .category-text .transform{
+        text-transform: uppercase;
+    }
+</style>
+
+<div class="container-3">
+    <div class="heading-container">
+        <h1>SEARCH TOP RESTAURANTS BY CATEGORIES</h1>
+        <h4>WE ALWAYS WANT YOU TO HAVE AN UNFORGETABLE EXPERIENCE. AND THAT'S WHY WE WOULD SUGGEST THE BEST RESTAURANTS FOR YOU, AS PER YOUR DESIRE. CLICK ON ANY CATEGORY, TO SEE THE RELATED RESTAURANTS.</h4>
+    </div>
+    <div class="category-div">
+        {% for name in names %}
+        <a href="/restaurants/?food_id={{name.id}}">
+            <div class="category">
+                <div class="img-div">
+                    <img src="{{name.food_img.url}}" alt="">
+                </div>
+                <div class="category-text">
+                    <h2>{{name.food_name}}</h2>
+                    <h4>SEE THE BEST <span class="transform">{{name.food_name}}</span> FOOD SERVING RESTAURANTS, WHICH WILL MAKE YOUR DAY.</h4>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock %}
+

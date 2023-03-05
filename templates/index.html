@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<style>
+    .container-1{
+        box-shadow: 10px 10px 20px black;
+        margin-top: 4rem;
+        background: no-repeat fixed  url('../media/platter-2009590_1920.jpg');
+        background-size:cover;
+    }
+    .container-2{
+        background: fixed no-repeat url('../media/table-2879226_1920.jpg');
+    }
+
+</style>
+
+<hr>
+
+<div class="container-1">
+    {% for rest in two_restaurants %}
+    <div class="card">
+        <div class="img-con">
+            <img src="{{rest.rest_main_img.url}}" alt="">
+        </div>
+        <div class="text-con-1">
+            <h2>{{rest.rest_name}}</h2>
+            <h5>LOCATION : {{rest.rest_location}}</h5>
+            <p>{{rest.rest_short_intro}}</p>
+            <div class="card-btn-div">
+                <a href="/restaurant/?rest_id={{rest.id}}">EXPLORE NOW</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="btn-div">
+        <a href="/all_rests/" class="more-btn">SEE MORE</a>
+    </div>
+</div>
+
+<hr>
+<br><br><br>
+
+<div class="container-2">
+    {% for chef in three_chefs %}
+    <div class="chef-card">
+        <img src="{{chef.chef_img.url}}" alt="">
+        <div class="text-area">
+            <h2>{{chef.chef_name}}</h2>
+            <h5>RANKING : {{chef.chef_ranking}}</h5>
+            <a href="/chef/?chef_id={{chef.id}}" class="chef-btn">KNOW MORE</a>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="chef-div">
+        <a href="/chefs/">SEE MORE</a>
+    </div>
+</div>
+
+<hr><br><br><br>
+
+{% endblock %}
+

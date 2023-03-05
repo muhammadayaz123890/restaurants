@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../static/style.css">
+        <link rel="stylesheet" href="../static/style_2.css">
+        <link rel="stylesheet" href="../static/chef.css">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <style>
+    body::-webkit-scrollbar{
+        width: 8px;
+        background: none;
+    }
+    body::-webkit-scrollbar-thumb{
+        width: 5px;
+        background-color: crimson;
+        border-radius: 5px;
+    }
+    .header-container img{
+        position: absolute;
+        top: 0px;
+        left: 0px ;
+        width: 100%;
+        height: 80vh;
+        z-index: -5;
+        object-fit: cover;
+    }
+    .header-container:before{
+        content: '';
+        z-index: -1;
+        background-color: white;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        opacity: .4;
+        position: absolute;
+
+    }
+</style>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="header-container">
+        <img src="../media/spaghetti-1987454_1920.jpg" alt="">
+        <div class="central-text">
+            <h1>BEST RESTAURANTS FOR YOU</h1>
+            <label for="">LOOKING FOR A RESTAURANT ? <br>LET US HELP YOU.</label>
+            <a class="btn-1" href="{% url 'about_page' %}">KNOW MORE</a>
+        </div>
+    </div>
+
+    
+
+    {% block content %}
+
+
+
+
+    {% endblock %}
+    
+
+    <div class="footer-container">
+        
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+{% load static %}
+
+<style>
+    .chef-container{
+        min-height: 100vh;
+        display: flex;
+        margin-top: 10vh;
+        width: 100vw;
+        flex-wrap: wrap;
+        align-items: center;
+        flex-direction: column;
+    }
+    .chef-container img{
+        width: 30rem;
+        border: 8px groove crimson;
+        height: 30rem;
+        object-fit: cover;
+    }
+    .chef-container .chef-about-div{
+        width: 88%;
+        margin-top: 5rem;
+        min-height: 40vh;
+        position: relative;
+    }
+    .chef-about-div .heading-area{
+        font-size: 3rem;
+        font-weight: 700;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: crimson;
+        text-shadow: 0px 2px 5px crimson;
+    }
+    .chef-about-div .chef-about-text{
+        margin-top: 4rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: gray;
+        font-family: sans-serif;
+    }
+    .chef-container .img img:hover{
+        scale: 1.02;
+        transition: .5s;
+        box-shadow: 5px 5px 10px black;
+    }
+</style>
+
+<link rel="stylesheet" href="../static/chef.css">
+<div class="chef-container">
+    <div class="chef-img-div">
+        <a class="img" target="_blank" href="{{chef.chef_img.url}}"><img src="{{chef.chef_img.url}}" alt=""></a>
+    </div>
+    <div class="chef-about-div">
+        <div class="heading-area">
+            {{chef.chef_name}}
+        </div>
+        <div class="chef-about-text">
+            {{chef.chef_desc}}
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

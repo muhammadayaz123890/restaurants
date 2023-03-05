@@ -1,0 +1,25 @@
+
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="container-5">
+    <div class="img-area">
+        <a target="_blank" href="{{restaurant.rest_main_img.url}}"><img src="{{restaurant.rest_main_img.url}}" alt=""></a>
+    </div>       
+    <div class="text-div">
+        <h1>{{restaurant.rest_name}}</h1>
+        <p>{{restaurant.rest_description}}</p>
+        <div class="contact-btn-div">
+            <a href="tel:{{restaurant.contact_no}}" class="contact-btn">CONTACT NOW</a>
+        </div>            
+    </div>   
+</div>
+
+
+
+{% endblock %}

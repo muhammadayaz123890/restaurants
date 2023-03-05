@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+
+
+
+
+{% block content %}
+
+<style>
+    .contact-container{
+        min-height: 80vh;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        border: 2px solid red;
+    }
+    .contact-container .form-div{
+        min-height: 30rem;
+        width: 60rem;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        border: 2px solid crimson;
+        overflow: hidden;
+        box-shadow: 0px 0px 2px crimson;
+    }
+    .contact-container .form-div .input-area-div{
+        min-height: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 90%;
+        justify-content: space-around;
+    }
+    
+    .input-area-div .first-input-area{
+        height: 100%;
+        width: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .input-area-div .second-input-area{
+        height: 100%;
+        width: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .input-area-div input{
+        height: 2rem;
+        width: 18rem;
+        color: crimson;
+        font-size: 1.4rem;
+        border: 1px solid black;
+        outline: none;
+        border-radius: 10px;
+        padding: 1rem;
+    }
+    .input-area-div textarea{
+        width: 18rem;
+        color: crimson;
+        font-size: 1.4rem;
+        border: 1px solid black;
+        outline: none;
+        border-radius: 10px;
+        padding: 1rem;
+    }
+    .input-area-div .first-input-area input::placeholder{
+        color: crimson;
+    }
+    .contact-container .form-div .send-btn{
+        font-size: 1.1rem;
+        padding: .8rem 1rem;
+        outline: none;
+        border: 2px solid crimson;
+        color: crimson;
+        background: none;
+    }
+    .contact-container .form-div .send-btn:hover{
+        color: white;
+        background-color: crimson;
+        cursor: pointer;
+        box-shadow: 0px 3px 5px black;
+    }
+    .input-area-div input:focus{
+        border: 2px solid crimson;
+        box-shadow: 0px 0px 3px crimson;
+    }
+</style>
+
+<div class="contact-container">
+    <form action="/user_comment/" method="post" class="form-div">
+        {% csrf_token %}
+        <div class="input-area-div">
+            <div class="first-input-area">
+                <input required name="name" placeholder="ENTER YOUR NAME" type="text">
+                <input required name="email" placeholder="ENTER YOUR EMAIL" type="text">
+            </div>
+            <div class="second-input-area">
+                <textarea required placeholder="ENTER YOUR MESSAGE HERE..." name="comment_value" id="" cols="30" fixed rows="10"></textarea>
+            </div>
+        </div>
+        <input type="submit" class="send-btn"  value="SEND MESSAGE">
+    </form>
+</div>
+
+
+
+
+{% endblock %}
+

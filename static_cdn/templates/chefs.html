@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<style>
+    .chefs-container{
+        min-height: 50vh;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 2rem;
+        padding: 4rem 4rem;
+        justify-content: space-around;
+    }
+    .chefs-container .chef-cards{
+        border: 2px solid red;
+        height: 15rem;
+        overflow: hidden;
+        width: 15rem;
+        padding: 0;
+        margin-top: 3rem;
+        border: 5px solid crimson;
+        position: relative;
+    }
+    .chefs-container .chef-cards img{
+        position: absolute;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        height: 105%;
+        object-fit: cover;
+    }
+    .chef-cards:before{
+        content: '';
+        background-color: crimson;
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        right: 4px;
+        bottom: 4px;
+        opacity: 0;
+        z-index: 3;
+        transform: rotate3d(-1,1,0,100deg);
+    }
+    .chef-cards:hover:before{
+        opacity: .5;
+        transform: rotate3d(0,0,0,0deg);
+        transition: .5s;
+    }
+    .chef-cards .chef-text-area{
+        position: absolute;
+        z-index: 5;
+        top: 50%;
+        left:50%;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 1.4rem;
+        opacity: 0;
+        align-items: center;
+        transform: translate(-50% , -50%);
+    }
+    .chef-cards:hover .chef-text-area{
+        transition: 1s;
+        opacity: 1;
+    }
+    .chef-cards .chef-text-area .chef-head{
+        color: white;
+        width: 100%;
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-align: center;
+    }
+    .chef-cards .chef-text-area a{
+        font-size: 1.1rem;
+        width: 60%;
+        padding: .5rem 1rem;
+        border: white 2px solid;
+        color: white;
+        text-decoration: none;
+    }
+    .chef-cards .chef-text-area a:hover{
+        color: crimson;
+        background-color: white;
+    }
+</style>
+
+
+<div class="chefs-container">
+    {% for chef in chefs %}
+    <div class="chef-cards">
+        <img src="{{chef.chef_img.url}}" alt="">
+        <div class="chef-text-area">
+            <span class="chef-head">{{chef.chef_name}}</span>
+            <span class="chef-rank">RANKING : {{chef.chef_ranking}}</span>
+            <a  href="/chef/?chef_id={{chef.id}}">KNOW MORE</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+{% endblock %}
+

@@ -1,0 +1,70 @@
+{% include 'navbar.html' %}
+
+<style>
+    .all_restaurants_container{
+        min-height: 80vh;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 3rem 5rem;
+        gap: 2rem;
+        justify-content: space-around;
+    }
+    .all_restaurants_container .rest-card{
+        border: 7px groove crimson;
+        height: 22rem;
+        width: 15rem;
+        text-decoration:none;
+        background-color: crimson;
+        color: wheat;
+    }
+    .rest-card:hover{
+        box-shadow: 0px 4px 5px black;
+    }
+    .all_restaurants_container .rest-card .img-div{
+        height: 60%;
+        object-fit: cover;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .rest-card .img-div img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    .rest-card .rest-text-area{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+    }
+    .rest-card .rest-text-area .heading{
+        font-size: 1.5rem;
+    }
+    .rest-card .rest-text-area .rest_intro{
+        font-size: .8rem;
+        margin-top: 1.2rem;
+    }
+</style>
+
+
+<div class="all_restaurants_container">
+    {% for rest in all_restaurants %}
+    <a class="rest-card" href="/restaurant/?rest_id={{rest.id}}">
+        <div >
+            <div class="img-div">
+                <img src="{{rest.rest_main_img.url}}" alt="">
+            </div>
+            <div class="rest-text-area">
+                <span class="heading">{{rest.rest_name}}</span>
+                <span class="rest_intro">{{rest.rest_short_intro}}</span>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+
